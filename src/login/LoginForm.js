@@ -32,23 +32,31 @@ function LoginForm() {
   }
 
   return (
-    <div id='public'>
-      <h2>Iniciar Sesión</h2>
-      <form onSubmit={handleSignIn}>
-        <div>
-          <label>Email:</label>
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-        </div>
-        <div>
-          <label>Contraseña:</label>
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        </div>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-        <button type="submit">Iniciar Sesión</button>
-      </form>
+    <div id='public' style={{ display: 'flex', justifyContent: 'center', width: '100vw' }}>
+      <div style={{ width: '100%', maxWidth: '400px' }}>
+        <h2>Iniciar Sesion</h2>
+        <form className='card card-body' onSubmit={handleSignIn}>
+          <div className='form-group input-group' style={{ width: '100%' }}>
+            <div className='input-group-text bd-light'>
+              <i className='material-icons'>group_add</i>
+            </div>
+            <label>Email:</label>
+            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} style={{ width: '100%' }} />
+          </div>
+          <div style={{ width: '100%' }}>
+            <i className='material-icons'>group_add</i>
+            <label>Contraseña:</label>
+            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} style={{ width: '100%' }} />
+          </div>
+          {error && <p style={{ color: 'red' }}>{error}</p>}
+          <button className='btn btn-primary btn-block' type="submit">Iniciar Sesion</button>
+        </form>
+      </div>
     </div>
   );
+  
 }
+
 
 export default LoginForm;
 
